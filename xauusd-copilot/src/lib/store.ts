@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import {
   buildCleanPaperAccount,
@@ -30,7 +31,8 @@ import type {
   TradePlan,
 } from "./types";
 
-const DATA_DIR = path.join(process.cwd(), "data");
+// Vercel's deployment filesystem is read-only; only the OS temp dir is writable (and ephemeral).
+const DATA_DIR = process.env.VERCEL ? path.join(os.tmpdir(), "aurumdesk-data") : path.join(process.cwd(), "data");
 const STORE_FILE = path.join(DATA_DIR, "platform-v2.json");
 
 export function uid(): string {
@@ -115,8 +117,12 @@ export function loadPlatformStore(): PlatformStore {
 }
 
 export function savePlatformStore(store: PlatformStore): void {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-  fs.writeFileSync(STORE_FILE, JSON.stringify(store, null, 2), "utf8");
+  try {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+    fs.writeFileSync(STORE_FILE, JSON.stringify(store, null, 2), "utf8");
+  } catch {
+    /* best effort: storage may be unavailable on serverless hosts */
+  }
 }
 
 export function getActiveAccount(store: PlatformStore): AccountProfile {

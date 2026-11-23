@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { buildCuratedWeeklySchedule, goldImpactNoteFor } from "./calendarFallback";
 import { SYMBOLS, SYMBOL_SPECS } from "./symbols";
@@ -241,7 +242,10 @@ export async function getBars(symbolOrInterval: string, intervalOrLimit?: string
 const CAL_TTL_MS = 20 * 60000;
 const CAL_STALE_MS = 12 * 60 * 60000;
 const CAL_BACKOFF_MS = 15 * 60000;
-const CAL_FILE = path.join(process.cwd(), "data", "calendar-cache-v2.json");
+const CAL_FILE = path.join(
+  process.env.VERCEL ? path.join(os.tmpdir(), "aurumdesk-data") : path.join(process.cwd(), "data"),
+  "calendar-cache-v2.json",
+);
 
 interface CalCache {
   at: number;
