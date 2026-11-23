@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>XAU/USD Automated Trading System - Project Proposal</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1f2933;
+    line-height: 1.55;
+    font-size: 11pt;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .cover {
+    background: linear-gradient(135deg, #1a1a1a 0%, #3a2f12 100%);
+    color: #fff;
+    padding: 48px 40px;
+    border-radius: 10px;
+    margin-bottom: 32px;
+  }
+  .cover .tag { color: #e6b422; letter-spacing: 2px; font-size: 10pt; text-transform: uppercase; }
+  .cover h1 { font-size: 28pt; margin: 10px 0 6px; line-height: 1.2; }
+  .cover p { color: #d9d9d9; margin: 4px 0; }
+  .cover .meta { margin-top: 24px; font-size: 10pt; color: #bfbfbf; }
+  h2 {
+    color: #3a2f12;
+    border-bottom: 3px solid #e6b422;
+    padding-bottom: 6px;
+    margin-top: 36px;
+    page-break-after: avoid;
+  }
+  h3 { color: #5a4a1a; margin-top: 22px; page-break-after: avoid; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 10pt; page-break-inside: avoid; }
+  th { background: #3a2f12; color: #fff; text-align: left; padding: 8px 10px; }
+  td { border-bottom: 1px solid #e3e3e3; padding: 8px 10px; vertical-align: top; }
+  tr:nth-child(even) td { background: #faf7ef; }
+  .box {
+    border-left: 5px solid #e6b422;
+    background: #fdf9ee;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 4px;
+    page-break-inside: avoid;
+  }
+  .box.green { border-color: #2e7d32; background: #f1f8f1; }
+  .box.blue { border-color: #1565c0; background: #eef4fb; }
+  .box.grey { border-color: #757575; background: #f5f5f5; }
+  .flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 16px 0; }
+  .flow span.step {
+    background: #3a2f12; color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 9.5pt;
+  }
+  .flow span.arrow { color: #e6b422; font-weight: bold; }
+  .modes { display: flex; gap: 12px; margin: 16px 0; page-break-inside: avoid; }
+  .mode { flex: 1; border: 1px solid #e0d6b8; border-radius: 8px; padding: 14px; background: #fffdf7; }
+  .mode h4 { margin: 0 0 6px; color: #3a2f12; }
+  .mode .level { font-size: 9pt; color: #8a7020; text-transform: uppercase; letter-spacing: 1px; }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .small { font-size: 9pt; color: #616e7c; }
+  .report {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 9.5pt;
+    background: #1e1e1e;
+    color: #e8e8e8;
+    padding: 16px 18px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+  }
+  .pb { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="tag">Project Proposal</div>
+  <h1>XAU/USD Automated Trading System</h1>
+  <p>A custom, rule-based gold trading system built from your own trading strategy, with strict risk limits, full transparency and you in control at every step.</p>
+  <div class="meta">
+    Prepared for: <strong>Edward</strong><br>
+    Prepared by: <strong>hammmad muntazir</strong><br>
+    Date: 22 November 2026
+  </div>
+</div>
+
+<!-- 1 -->
+<h2>1. Executive Summary</h2>
+<p>
+You want an automated system that trades Gold (XAU/USD) using the strategy taught in your trading course
+(weekly and daily key levels, quarterly and top-down analysis, 4-hour structure, momentum re-tests and
+candlestick reversals).
+</p>
+<p>
+We will not sell you another generic "black box" robot. We will <strong>convert your course strategy into precise, written trading rules</strong>.
+Then we <strong>test those rules on years of real gold price data</strong> and show you the results honestly. Only after that
+do we <strong>build a trading system that follows those rules exactly</strong>, inside hard safety limits that you set and control.
+</p>
+<div class="box green">
+  <strong>Our three promises:</strong>
+  <ul>
+    <li><strong>You stay in control.</strong> You decide how much freedom the system has, from "alerts only" to "fully automatic within limits".</li>
+    <li><strong>Capital protection comes first.</strong> Every trade has a stop loss, and daily and overall loss limits automatically stop the system.</li>
+    <li><strong>Full transparency.</strong> Daily reports explain every trade and the reason it was taken.</li>
+  </ul>
+</div>
+
+<!-- 2 -->
+<h2>2. Our Understanding of Your Requirements</h2>
+<table>
+  <tr><th style="width:35%">What you need</th><th>How we deliver it</th></tr>
+  <tr><td>A bot that trades Gold (XAU/USD)</td><td>A custom Expert Advisor for MetaTrader 5, designed for gold's volatility and trading hours.</td></tr>
+  <tr><td>Trading based on your course strategy</td><td>We analyse every course video and turn the methods into exact written rules that you approve.</td></tr>
+  <tr><td>Reliable decisions</td><td>The rules are tested on historical data and then on a demo account before any real money is used.</td></tr>
+  <tr><td>Safety of your money</td><td>Multiple layers of risk control, loss limits and an emergency stop.</td></tr>
+  <tr><td>Control and visibility</td><td>Permission levels, Telegram alerts, approve/reject buttons and daily reports.</td></tr>
+</table>
+
+<!-- 3 -->
+<h2>3. How We Turn Your Course Into a Trading System</h2>
+<p>
+An AI tool cannot simply "watch" a video and start trading, and it should not. We follow a careful, step-by-step process:
+</p>
+<div class="flow">
+  <span class="step">Course videos</span><span class="arrow">&rarr;</span>
+  <span class="step">Transcripts + chart screenshots</span><span class="arrow">&rarr;</span>
+  <span class="step">Strategy Rulebook</span><span class="arrow">&rarr;</span>
+  <span class="step">Your approval</span><span class="arrow">&rarr;</span>
+  <span class="step">Historical testing</span><span class="arrow">&rarr;</span>
+  <span class="step">Demo trading</span><span class="arrow">&rarr;</span>
+  <span class="step">Small live start</span>
+</div>
+<ol>
+  <li><strong>Transcription and chart extraction.</strong> Every video is converted to text, and the key chart moments are captured as images.</li>
+  <li><strong>AI-assisted analysis.</strong> The transcripts and charts are analysed to identify every entry, exit and risk rule taught in the course.</li>
+  <li><strong>The Strategy Rulebook.</strong> A clear document that states each rule precisely, for example:<br>
+    <em>"IF the daily trend is bullish AND price re-tests a weekly key level AND a bullish engulfing candle closes on the 15-minute chart, THEN open a BUY with the stop loss below the level."</em></li>
+  <li><strong>Your review and sign-off.</strong> You confirm the rules match how the course is meant to be traded. Nothing is built until you approve.</li>
+</ol>
+
+<h3>How each part of your course becomes a rule</h3>
+<table>
+  <tr><th style="width:32%">Course topic</th><th>How the system handles it</th></tr>
+  <tr><td>Weekly / Daily key level plotting</td><td>Automatically marks previous week and day highs and lows, major swing points and repeatedly respected price zones.</td></tr>
+  <tr><td>Quarterly timeframe analysis</td><td>Tracks quarterly opens, highs and lows to set the long-term bias.</td></tr>
+  <tr><td>Top-down analysis</td><td>Reads the trend from Monthly, Weekly and Daily down to 4-Hour, and only trades in the approved direction.</td></tr>
+  <tr><td>Breaking down the 4-Hour timeframe</td><td>Detects 4H market structure, ranges and breaks of structure.</td></tr>
+  <tr><td>Trading with tiled charts</td><td>The system analyses all timeframes at the same time, like a trader with several charts open.</td></tr>
+  <tr><td>Momentum re-tests</td><td>Detects a break of a key level, waits for the re-test and confirmation, then enters.</td></tr>
+  <tr><td>Candlestick patterns and reversals</td><td>Recognises engulfing, pin bar and other reversal patterns using exact measurements.</td></tr>
+  <tr><td>Intra-day counter-trend trading</td><td>Available as an optional mode with tighter risk. It is switched off by default.</td></tr>
+</table>
+<p class="small">
+Note: the strategy can also be applied to other pairs used in the course (for example GBP/USD and USD/CAD). The system will be designed so that more instruments can be added later.
+</p>
+
+<!-- 4 -->
+<h2 class="pb">4. Your Control: Choose How the System Operates</h2>
+<p>You decide how much permission the system has, and you can switch modes at any time.</p>
+<div class="modes">
+  <div class="mode">
+    <div class="level">Level 1</div>
+    <h4>Signal Only</h4>
+    <p>The system finds trade opportunities and sends them to your phone with the reason, entry, stop loss and target. <strong>You place trades yourself.</strong></p>
+  </div>
+  <div class="mode">
+    <div class="level">Level 2</div>
+    <h4>Semi-Automatic</h4>
+    <p>The system prepares the trade and asks for permission. <strong>You tap "Approve" or "Reject"</strong>, and it only trades with your approval.</p>
+  </div>
+  <div class="mode">
+    <div class="level">Level 3</div>
+    <h4>Fully Automatic (Within Limits)</h4>
+    <p>The system trades by itself, <strong>but only inside the limits you set</strong>: risk per trade, daily loss, number of trades and trading hours.</p>
+  </div>
+</div>
+
+<h3>Instructions you can give the system at any time</h3>
+<ul>
+  <li><strong>Pause / Resume</strong> trading.</li>
+  <li><strong>Close all trades</strong> immediately (emergency stop).</li>
+  <li><strong>Change mode</strong> (Signal / Semi-Auto / Full-Auto).</li>
+  <li><strong>Adjust limits</strong>: risk per trade, daily loss limit, maximum trades per day.</li>
+  <li><strong>Allow BUY only, SELL only, or both</strong>, for example if you have your own view on gold that week.</li>
+  <li><strong>Block trading on specific days</strong>, for example around a major event.</li>
+</ul>
+
+<!-- 5 -->
+<h2>5. Safety First: How Your Capital Is Protected</h2>
+<p>
+Many bots on the market blow up accounts because they use dangerous methods such as <strong>martingale</strong>
+(doubling the trade size after a loss) or <strong>grid trading</strong> (opening more and more trades against the market).
+<strong>Our system will never use these methods.</strong>
+</p>
+
+<table>
+  <tr><th style="width:32%">Protection</th><th>What it does</th></tr>
+  <tr><td><strong>Mandatory stop loss</strong></td><td>Every trade is opened with a stop loss. No trade can exist without one.</td></tr>
+  <tr><td><strong>Fixed risk per trade</strong></td><td>Each trade risks only a small fixed percentage of the account, for example 0.5% - 1%, as you choose. Position size is calculated automatically.</td></tr>
+  <tr><td><strong>Daily loss limit</strong></td><td>If losses reach your daily limit (for example 2%), the system stops trading for the rest of the day.</td></tr>
+  <tr><td><strong>Weekly / overall drawdown limit</strong></td><td>If total losses reach a set level, the system stops completely and alerts you. Only you can restart it.</td></tr>
+  <tr><td><strong>Maximum open trades</strong></td><td>Limits how many trades can be open at once, to avoid over-exposure.</td></tr>
+  <tr><td><strong>News filter</strong></td><td>Avoids trading around high-impact news (US jobs report, inflation data, Federal Reserve decisions) when gold moves violently.</td></tr>
+  <tr><td><strong>Spread filter</strong></td><td>Does not enter when the broker's spread is unusually wide, for example at market open or late at night.</td></tr>
+  <tr><td><strong>Session filter</strong></td><td>Trades only during the sessions you approve, for example London and New York.</td></tr>
+  <tr><td><strong>Connection safety</strong></td><td>Protects against duplicate orders, platform restarts and internet disconnections.</td></tr>
+  <tr><td><strong>Emergency stop</strong></td><td>One command from your phone closes all trades and stops the system.</td></tr>
+  <tr><td><strong>Prop-firm mode (optional)</strong></td><td>If you trade a funded account (for example FTMO-style), the system respects that firm's drawdown rules automatically.</td></tr>
+</table>
+
+<div class="box">
+  <strong>What this means in practice:</strong> losses are a normal part of every trading strategy, and no system can avoid them completely.
+  But with these limits, <strong>no single trade and no single bad day can cause serious damage</strong> to your account.
+  The maximum risk is defined in advance and agreed by you.
+</div>
+
+<!-- 6 -->
+<h2 class="pb">6. Daily Reports and Full Transparency</h2>
+<p>You will always know exactly what the system is doing and why.</p>
+
+<h3>Real-time alerts (Telegram)</h3>
+<ul>
+  <li>New trade opened: direction, entry, stop loss, target and <strong>the reason for the trade</strong></li>
+  <li>Trade closed: result in money and in percent</li>
+  <li>Safety events: daily limit reached, news pause, system paused</li>
+</ul>
+
+<h3>Daily report (example)</h3>
+<div class="report">XAU/USD DAILY REPORT - Tuesday 12 May
+
+Mode: Semi-Automatic        Status: Active
+Account balance: 10,250.00   Today: +1.2%
+
+TRADES TODAY
+1) BUY  2,384.50 -> 2,401.20   +0.9%  (Target hit)
+   Reason: Daily trend bullish + re-test of Weekly level
+           2,383 + bullish engulfing on 15m
+2) SELL 2,405.00 -> 2,407.80   -0.5%  (Stop loss)
+   Reason: Rejection at 4H resistance + pin bar
+
+RISK STATUS
+Daily loss limit used: 0% of 2%
+Weekly drawdown:        within limit
+Open trades:            0 / 2
+
+TOMORROW
+High-impact news: US CPI at 13:30 (no trading 13:00 - 14:30)
+Key levels: 2,410 (resistance) | 2,383 (support)</div>
+
+<h3>Weekly and monthly reports</h3>
+<ul>
+  <li>Total profit/loss, win rate, average win vs average loss</li>
+  <li>Largest drawdown and how it compares to the agreed limits</li>
+  <li>Comparison of live results with the tested results</li>
+  <li>Recommendations, if any adjustments should be considered (always with your approval)</li>
+</ul>
+
+<!-- 7 -->
+<h2>7. How We Prove Reliability Before Any Real Money Is Used</h2>
+<p>
+You asked how reliable the system's decisions will be. Our answer: <strong>we measure it rather than promise it.</strong>
+The system is tested in stages, and you see the results of each stage before we move to the next.
+</p>
+<table>
+  <tr><th style="width:28%">Stage</th><th>What happens</th><th style="width:28%">What you receive</th></tr>
+  <tr><td><strong>1. Historical testing</strong></td><td>The rules are tested on several years of real gold price data, including realistic spreads, commissions and slippage.</td><td>Performance report</td></tr>
+  <tr><td><strong>2. Unseen-data test</strong></td><td>The rules are tested on a period of data that was not used to build them, to make sure the results are genuine and not "curve-fitted".</td><td>Validation report</td></tr>
+  <tr><td><strong>3. Stress test</strong></td><td>Thousands of simulated scenarios estimate realistic worst-case losing streaks.</td><td>Worst-case risk figures</td></tr>
+  <tr><td><strong>4. Demo account</strong></td><td>The system trades live market conditions with virtual money for several weeks.</td><td>Daily reports + demo summary</td></tr>
+  <tr><td><strong>5. Small live start</strong></td><td>Real trading starts with minimum risk and increases only if results match expectations and you approve.</td><td>Daily / weekly reports</td></tr>
+</table>
+
+<h3>Key numbers you will see in every report</h3>
+<ul>
+  <li><strong>Win rate</strong>: percentage of winning trades</li>
+  <li><strong>Profit factor</strong>: total profit divided by total loss (above 1.3 is generally considered healthy)</li>
+  <li><strong>Risk-to-reward ratio</strong>: average win compared to average loss</li>
+  <li><strong>Maximum drawdown</strong>: the largest fall from a peak, the most important safety number</li>
+</ul>
+
+<div class="box blue">
+  <strong>An honest advantage:</strong> even the first testing stage is valuable on its own. It shows you objectively whether the
+  course strategy has a real statistical edge on gold <em>before</em> you risk any money on it. Most bot sellers never offer this.
+</div>
+
+<!-- 8 -->
+<h2 class="pb">8. Why Our System Instead of an Existing Bot?</h2>
+<table>
+  <tr><th style="width:32%"></th><th>Typical bots on the market</th><th>Our custom system</th></tr>
+  <tr><td><strong>Strategy</strong></td><td>Unknown "black box" logic</td><td>Your own course strategy, written rule by rule</td></tr>
+  <tr><td><strong>Transparency</strong></td><td>No explanation of trades</td><td>Every trade comes with its reason, plus daily reports</td></tr>
+  <tr><td><strong>Risk methods</strong></td><td>Often martingale or grid, which can wipe out accounts</td><td>Fixed small risk, mandatory stop loss, hard loss limits</td></tr>
+  <tr><td><strong>Proof</strong></td><td>Marketing screenshots, often unverifiable</td><td>Your own testing reports, then demo, then small live start</td></tr>
+  <tr><td><strong>Control</strong></td><td>On or off</td><td>Three permission levels, phone controls, emergency stop</td></tr>
+  <tr><td><strong>Customisation</strong></td><td>Limited settings</td><td>Sessions, risk, news, direction and instruments set to your preference</td></tr>
+  <tr><td><strong>Ownership</strong></td><td>Rented or licensed, can be withdrawn</td><td>You own your system and your rules</td></tr>
+  <tr><td><strong>Support</strong></td><td>Generic or none</td><td>Direct support and ongoing improvements</td></tr>
+</table>
+
+<!-- 9 -->
+<h2>9. System Structure</h2>
+<table>
+  <tr><th style="width:30%">Component</th><th>Purpose</th></tr>
+  <tr><td><strong>Market Analysis Engine</strong></td><td>Reads gold prices across all timeframes and maps key levels, trend and structure.</td></tr>
+  <tr><td><strong>Strategy Engine</strong></td><td>Applies the approved rules from your Rulebook to find trade setups.</td></tr>
+  <tr><td><strong>Risk Manager</strong></td><td>Checks every trade against your limits before it is allowed. It can block any trade.</td></tr>
+  <tr><td><strong>Execution Module</strong></td><td>Places, manages and closes trades on your MetaTrader 5 broker account.</td></tr>
+  <tr><td><strong>Control and Alerts (Telegram)</strong></td><td>Sends alerts and reports, and receives your approvals and commands.</td></tr>
+  <tr><td><strong>Reporting</strong></td><td>Produces daily, weekly and monthly performance reports.</td></tr>
+  <tr><td><strong>Key Level Indicator</strong> (bonus)</td><td>Draws your weekly, daily and quarterly levels automatically on your chart. Also useful for your own manual trading.</td></tr>
+</table>
+
+<h3>Technology</h3>
+<ul>
+  <li><strong>MetaTrader 5</strong>: a widely used trading platform supported by many regulated brokers</li>
+  <li><strong>MQL5</strong>: MetaTrader's native language, for fast and stable trade execution</li>
+  <li><strong>Python</strong>: for strategy research, historical testing and reporting</li>
+  <li><strong>Telegram</strong>: for alerts, approvals and remote control from your phone</li>
+  <li><strong>Economic calendar data</strong>: for the high-impact news filter</li>
+  <li><strong>Virtual Private Server (VPS)</strong>: runs the system 24/5 without your computer needing to be on</li>
+  <li><strong>AI-assisted development</strong>: used to analyse the course and build the system faster and more thoroughly. <strong>Trading decisions are made by your fixed, tested rules, not by unpredictable AI guesses.</strong></li>
+</ul>
+
+<!-- 10 -->
+<h2 class="pb">10. Project Phases</h2>
+<p>The project is divided into clear phases. You review the results at the end of each phase before the next one begins.</p>
+<table>
+  <tr><th style="width:22%">Phase</th><th>Work</th><th style="width:26%">Deliverable</th><th style="width:13%">Estimated time</th></tr>
+  <tr><td><strong>Phase 1</strong><br>Strategy Extraction</td><td>Transcribe and analyse the full course, then write the Strategy Rulebook.</td><td>Strategy Rulebook for your approval</td><td>1 - 2 weeks</td></tr>
+  <tr><td><strong>Phase 2</strong><br>Testing and Verdict</td><td>Historical testing, unseen-data testing and stress testing.</td><td>Reliability report and go/no-go recommendation</td><td>1 - 2 weeks</td></tr>
+  <tr><td><strong>Phase 3</strong><br>System Development</td><td>Build the MT5 trading system, risk manager, news/session filters, Telegram control and reports.</td><td>Working system on demo account</td><td>2 - 3 weeks</td></tr>
+  <tr><td><strong>Phase 4</strong><br>Demo Trading</td><td>Live market testing with virtual money, monitoring and fine-tuning.</td><td>Demo results + daily reports</td><td>4 - 8 weeks</td></tr>
+  <tr><td><strong>Phase 5</strong><br>Live Launch and Support</td><td>Small-risk live start, monitoring, reports and ongoing support.</td><td>Live system + ongoing reports</td><td>Ongoing</td></tr>
+</table>
+<p class="small">Timelines are estimates and depend on course length, rule complexity and how quickly approvals are given.</p>
+
+<div class="box green">
+  <strong>Why phases protect you:</strong> if testing in Phase 2 shows the strategy does not perform well enough, you will know early,
+  before investing in full development or risking any capital. We can then adjust the rules together or decide on the best next step.
+</div>
+
+<!-- 11 -->
+<h2>11. What We Need From You</h2>
+<ol>
+  <li>Access to the <strong>full course</strong> (all modules, plus any PDFs or notes), not only module 6.</li>
+  <li>Your trading platform and broker (MetaTrader 5, MetaTrader 4 or other), and whether it is a personal or <strong>prop-firm</strong> account.</li>
+  <li>Whether you currently trade this strategy yourself and, if possible, examples of your past trades.</li>
+  <li>Your preferred risk settings: risk per trade, maximum daily loss, maximum open trades.</li>
+  <li>Preferred trading sessions (for example London / New York) and preferred operating mode to start with.</li>
+  <li>Whether you want gold only, or other pairs from the course as well.</li>
+  <li>Availability to review and approve the Strategy Rulebook and test reports.</li>
+</ol>
+
+<!-- 12 -->
+<h2>12. Important Notes</h2>
+<div class="box grey">
+  <ul>
+    <li>This is a <strong>software development service</strong>. It is not financial or investment advice.</li>
+    <li>Trading gold involves risk. <strong>No trading system can guarantee profits or avoid all losses.</strong> Our approach is designed to keep losses small, controlled and within limits you agree in advance.</li>
+    <li>In extreme market events (for example weekend gaps or sudden news shocks), prices can move past a stop loss before it is executed. This is a market condition, not a system fault. Our news and session filters are designed to reduce this risk.</li>
+    <li>Past or tested performance does not guarantee future results. This is why we use demo trading and a small live start.</li>
+    <li>The system runs on <strong>your own broker account</strong>. Your funds always remain under your control.</li>
+    <li>The course material is used only to build your private system, and it will not be shared with anyone else.</li>
+  </ul>
+</div>
+
+<!-- 13 -->
+<h2>13. Next Steps</h2>
+<ol>
+  <li>Share the full course files (Google Drive, Dropbox or similar).</li>
+  <li>Answer the questions in Section 11.</li>
+  <li>We start Phase 1 and deliver your Strategy Rulebook for review.</li>
+</ol>
+<p>
+We look forward to building a system that trades your strategy with discipline, protects your capital and keeps you fully informed every step of the way.
+</p>
+<p><strong>hammmad muntazir</strong></p>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+# Copy to companion/config.yaml and fill in. Never share the token.
+telegram:
+  token: "PUT-YOUR-BOT-TOKEN-FROM-BOTFATHER"
+  # Only these chats can control the bot. Get your ID from @userinfobot.
+  allowed_chat_ids:
+    - 123456789
+
+# Leave empty to use %APPDATA%\MetaQuotes\Terminal\Common\Files\GoldGuardian
+bridge_dir: ""
+data_dir: "companion_data"
+reports_dir: "companion_data/reports"
+
+timezone: "Europe/London"
+
+reports:
+  daily_time: "22:30"      # sent Monday to Friday
+  weekly_day: "friday"
+  weekly_time: "22:45"
+  monthly_day: 1
+  monthly_time: "08:00"
+
+notify:
+  blocked_signals: false   # true = also tell me about setups skipped by safety filters
+  managed_trades: true     # break-even / partial close messages
+
+heartbeat_timeout_sec: 120 # alert if MT5 stops updating
+poll_interval_sec: 3
